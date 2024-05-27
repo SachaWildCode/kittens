@@ -1,0 +1,22 @@
+<h2>Ajouter un chaton</h2>
+<form [formGroup]="kittenForm" (ngSubmit)="addKitten()">
+  <input
+    type="text"
+    formControlName="name"
+    placeholder="Nom"
+    class="form-control"
+  />
+  <select formControlName="breed" class="form-control">
+    <option *ngFor="let breed of breeds" [value]="breed">{{ breed }}</option>
+  </select>
+  <input type="date" formControlName="birthdate" class="form-control" />
+  <input
+    type="url"
+    formControlName="imageUrl"
+    placeholder="URL de la photo"
+    class="form-control"
+  />
+  <button type="submit" [disabled]="!kittenForm.valid" class="btn-submit">
+    Ajouter
+  </button>
+</form>

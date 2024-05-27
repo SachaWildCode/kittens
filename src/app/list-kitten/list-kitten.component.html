@@ -1,0 +1,22 @@
+<h2>Chatons disponibles</h2>
+<div class="card-details" [ngClass]="{ visible: selectedKitten }">
+  <h3>{{ selectedKitten?.name }}</h3>
+  <p>Race : {{ selectedKitten?.breed }}</p>
+  <p>Né le : {{ selectedKitten?.birthdate | date : "dd/MM/yyyy" }}</p>
+</div>
+<div class="container">
+  <div
+    class="card"
+    *ngFor="let kitten of kittens"
+    (mouseenter)="selectedKitten = kitten"
+    (mouseleave)="selectedKitten = null"
+  >
+    <img [src]="kitten.imageUrl" />
+    <ul>
+      <li>Nom: {{ kitten.name }}</li>
+      <li>Race: {{ kitten.breed }}</li>
+      <li>Date de naissance: {{ kitten.birthdate | date : "dd/MM/yyyy" }}</li>
+    </ul>
+    <button (click)="adopt(kitten)">Adopter</button>
+  </div>
+</div>

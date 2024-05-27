@@ -1,0 +1,5 @@
+<h2>Chatons adoptés</h2>
+<div *ngFor="let kitten of adoptedKittens" class="card">
+  <img [src]="kitten.imageUrl" />
+  <p>{{ kitten.name }}</p>
+</div>
